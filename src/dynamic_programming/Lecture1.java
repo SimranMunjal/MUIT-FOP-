@@ -62,12 +62,11 @@ public class Lecture1 {
 		Scanner s = new Scanner(System.in);
 		int n = s.nextInt();
 		
-		//System.out.println(fact(n));
-		//System.out.println(fib(n));
-		int dpMemory[] = new int[n+1];
-		Arrays.fill(dpMemory, -1);
-		//System.out.println(fibUsingMemoization(n,dpMemory));
+//		System.out.println(fact(n));
+//		System.out.println(fibUsingRecursion(n));
+//		int dpMemory[] = new int[n+1];
+//		Arrays.fill(dpMemory, -1);
+//		System.out.println(fibUsingMemoization(n,dpMemory));
 		System.out.println(fibUsingTabulation(n));
 	}
-
 }
