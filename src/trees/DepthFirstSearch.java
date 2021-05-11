@@ -1,10 +1,11 @@
 package trees;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class DepthFirstSearch {
 	
-public static BinaryTreeNode takeInput() {
+	public static BinaryTreeNode takeInput() {
 		
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter node's data: ");
@@ -41,6 +42,7 @@ public static BinaryTreeNode takeInput() {
 		print(root.right);
 		
 	}
+	
 	public static void preorder(BinaryTreeNode root) {
 		
 		if(root==null)
@@ -73,6 +75,25 @@ public static BinaryTreeNode takeInput() {
 		System.out.print(root.data +"  ");
 		
 	}
+	
+	public static void inorderIterative(BinaryTreeNode root) {
+		
+		Stack<BinaryTreeNode> st = new Stack();
+		BinaryTreeNode curr = root;
+		
+		while(curr!=null || st.size()>0) {
+			
+			while(curr!=null) {
+				st.push(curr);
+				curr = curr.left;
+			}
+			curr = st.pop();
+			System.out.print(curr.data+"  ");
+			curr = curr.right;
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
 //		BinaryTreeNode root = new BinaryTreeNode(1);
@@ -83,10 +104,11 @@ public static BinaryTreeNode takeInput() {
 //		root.right.left = new BinaryTreeNode(6);
 //		root.right.right = new BinaryTreeNode(7);
 		BinaryTreeNode root = takeInput();
-		print(root);
+		//print(root);
 		//preorder(root);
 		//inorder(root);
 		//postorder(root);
+		inorderIterative(root);
 	}
 
 }
